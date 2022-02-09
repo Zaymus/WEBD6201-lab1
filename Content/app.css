@@ -99,3 +99,29 @@ section[data-visible="flip-up"] {
 	visibility: visible;
 	top: -90vh;
 }
+
+#form-container {
+	display: flex;
+	flex-direction: column;
+}
+
+#form-container * {
+	margin: 10px 0px;
+	font-size: 1rem;
+	padding-left: 8px;
+}
+
+#form-container #buttons {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#buttons button {
+	width: 35%;
+	border-radius: 5px;
+}
+
+#buttons button:hover {
+	cursor: pointer;
+}

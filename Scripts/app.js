@@ -88,6 +88,8 @@ function nextElement(event) {
 	}
 }
 
+function contactSubmit() {}
+
 window.onload = () => {
 	for (let i = 0; i < NAV_ITEMS.length; i++) {
 		NAV_ITEMS[i].addEventListener("click", showSection);

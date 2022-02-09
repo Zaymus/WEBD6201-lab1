@@ -40,7 +40,46 @@
 			<section id="services" data-visible="hide">SERVICES</section>
 			<section id="about-us" data-visible="hide">ABOUT US</section>
 			<section id="hr" data-visible="hide">HUMAN RESOURCES</section>
-			<section id="contact-us" data-visible="hide">CONTACT US</section>
+			<section id="contact-us" data-visible="hide">
+				<h1>Contact Us!</h1>
+				<form id="form-container">
+					<input
+						type="text"
+						name="name"
+						id="name-input"
+						placeholder="Name"
+						required
+					/>
+					<input
+						type="tel"
+						name="phone-number"
+						id="phone-input"
+						placeholder="Phone Number"
+						required
+					/>
+					<input
+						type="email"
+						name="email"
+						id="email-input"
+						placeholder="Email Address"
+						required
+					/>
+					<textarea
+						name="message"
+						id="message-input"
+						cols="30"
+						rows="7"
+						placeholder="Your request/message"
+						form="form-container"
+						required
+					></textarea>
+
+					<div id="buttons">
+						<button onclick="contactSubmit()">Submit</button>
+						<button type="reset">Reset</button>
+					</div>
+				</form>
+			</section>
 		</div>
 	</body>
 </html>
