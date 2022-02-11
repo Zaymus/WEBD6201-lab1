@@ -51,8 +51,8 @@ nav #sub-nav .sub-nav-item {
 
 nav #sub-nav .sub-nav-item:hover {
 	opacity: 1;
-	font-size: 1.1rem;
-	transform: scale(1.025);
+	/* font-size: 1.1rem; */
+	transform: scale(1.1);
 	cursor: pointer;
 }
 
@@ -100,14 +100,100 @@ section[data-visible="flip-up"] {
 	top: -90vh;
 }
 
+.bg-container {
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.5;
+	position: absolute;
+}
+
+.content {
+	opacity: 1;
+	margin-left: 5vw;
+	width: 100%;
+	height: 100%;
+}
+.content h1 {
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+#home .bg-container {
+	background-image: url("images/html-code.jpg");
+}
+
+.gallery {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gallery .item {
+	width: 400px;
+	height: 500px;
+	margin: 0 40px;
+}
+
+.item img {
+	width: 400px;
+	height: 300px;
+}
+
+.item p {
+	width: 400px;
+	height: 200px;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+#projects .content {
+	margin: 0;
+}
+
+#services p {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+#about-us .item img {
+	object-fit: cover;
+}
+
+#about-us .item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.item button {
+	width: 35%;
+	margin: 10px auto;
+}
+
 #form-container {
 	display: flex;
 	flex-direction: column;
 }
 
-#form-container * {
+#form-container input {
 	margin: 10px 0px;
 	font-size: 1rem;
+	padding-left: 8px;
+}
+
+#form-container textarea {
+	margin: 10px 0px;
+	font-size: 1.1rem;
 	padding-left: 8px;
 }
 
@@ -119,7 +205,10 @@ section[data-visible="flip-up"] {
 
 #buttons button {
 	width: 35%;
+	font-size: 1.1rem;
 	border-radius: 5px;
+	margin: 10px 0px;
+	padding: 0;
 }
 
 #buttons button:hover {
