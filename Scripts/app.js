@@ -1,6 +1,8 @@
 /*
  *	Names (Student ID): Drew Cross (100659256), Carson Brown (100741210)
  *	Date Completed: February 10th 2022
+ *  Description: In this lab we were tasked with demonstrating our knowledge of JavaScript thus far in the course. The focus of the lab structure was to display information on a page accessible via a nav bar. The information to be displayed was to be injected using the appropriate JavaScript code, we accomplished this by hard-coding the page content within a json file for ease of access and viewability while referencing the file later. Utilizing a json file. Also allowed us to conserve space and keep our JavaScript file free of additional clutter.
+
  */
 
 // Declare Constants used for navbar nagivation and sections
@@ -35,6 +37,9 @@ $.getJSON("./Content/content.json", readData);
 // this function reads the JSON file while putting it on the page.
 function readData(json) {
 	var siteContent = json;
+	let button_drew = document.getElementById("resume-drew");
+	let button_carson = document.getElementById("resume-carson");
+
 	// iterate through all sections
 	for (let i = 0; i <= SECTIONS.length - 1; i++) {
 		// set title of section
@@ -44,46 +49,56 @@ function readData(json) {
 		// get the content segment of the section
 		let content = SECTIONS[i].childNodes[3].childNodes[3];
 		// check if the content contains the gallery class
-		if (content.classList.contains("gallery")) {
-			// count the number of items for the json dictionary
-			let count = 1;
-			// iterate through all child nodes
-			for (let k = 1; k < content.childNodes.length; k += 2) {
-				// set title margins
-				title.style.marginBottom = "0px";
-				title.style.marginTop = "5px";
-				// get image element
-				let image = content.childNodes[k].childNodes[1];
-				// set the image source the url in json file
-				image.setAttribute("src", siteContent[name][`image-${count}`]);
-				let caption = "";
-				// check if the content has the about class
-				if (content.classList.contains("about")) {
-					// get caption element
-					caption = content.childNodes[k].childNodes[5];
-					// get resume button element
-					let button = content.childNodes[k].childNodes[3];
-					// set the click event to open the resume file in a new tab
-					button.onclick = window.open(
-						siteContent[name][`resume-${count}`],
-						"_blank"
-					);
-				} else {
-					// get the caption element
-					caption = content.childNodes[k].childNodes[3];
+		if (content != null) {
+			if (content.classList.contains("gallery")) {
+				// count the number of items for the json dictionary
+				let count = 1;
+				// iterate through all child nodes
+				for (let k = 1; k < content.childNodes.length; k += 2) {
+					// set title margins
+					title.style.marginBottom = "0px";
+					title.style.marginTop = "5px";
+					// get image element
+					let image = content.childNodes[k].childNodes[1];
+					// set the image source the url in json file
+					image.setAttribute("src", siteContent[name][`image-${count}`]);
+					let caption = "";
+					// check if the content has the about class
+					if (content.classList.contains("about")) {
+						// get caption element
+						caption = content.childNodes[k].childNodes[5];
+						// get resume button element
+						let button1 = document.getElementById("resume-drew");
+						let button2 = document.getElementById("resume-carson");
+
+						// set the click event to open the resume file in a new tab
+						button1.addEventListener("click", () => {
+							window.open(`${siteContent[name][`resume-1`]}`, "_blank");
+						});
+						button2.addEventListener("click", () => {
+							window.open(`${siteContent[name][`resume-2`]}`, "_blank");
+						});
+					} else {
+						// get the caption element
+						caption = content.childNodes[k].childNodes[3];
+					}
+					// assign the caption element to display json data
+					caption.innerHTML = siteContent[name][`caption-${count}`];
+					// increment count
+					count++;
 				}
-				// assign the caption element to display json data
-				caption.innerHTML = siteContent[name][`caption-${count}`];
-				// increment count
-				count++;
+			} else {
+				// set content text
+				content.innerHTML = siteContent[name]["content"];
 			}
-		} else {
-			// set content text
-			content.innerHTML = siteContent[name]["content"];
+			// set title text
+			title.innerHTML = siteContent[name]["title"];
 		}
-		// set title text
-		title.innerHTML = siteContent[name]["title"];
 	}
+}
+
+function openResume(e) {
+	console.log(e);
 }
 
 // Declare the global index value for the current section the user is on

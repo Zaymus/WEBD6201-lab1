@@ -108,6 +108,7 @@ section[data-visible="flip-up"] {
 	background-size: cover;
 	opacity: 0.5;
 	position: absolute;
+	z-index: -1000;
 }
 
 .content {
@@ -211,6 +212,6 @@ section[data-visible="flip-up"] {
 	padding: 0;
 }
 
-#buttons button:hover {
+button:hover {
 	cursor: pointer;
 }
