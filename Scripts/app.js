@@ -8,6 +8,9 @@ const NAV_BAR = document.getElementsByTagName("nav")[0];
 const NAV_CONTAINER = document.getElementById("sub-nav");
 const SECTIONS = document.getElementsByTagName("section");
 
+// Declare scroll magnitude value constant
+const SCROLL_MAGNITUDE = 30;
+
 // Process used to create the Human Resources Nav item
 let hr = document.createElement("li");
 hr.classList.add("sub-nav-item");
@@ -33,7 +36,7 @@ $.getJSON("./Content/content.json", readData);
 function readData(json) {
 	var siteContent = json;
 	// iterate through all sections
-	for (let i = 0; i < SECTIONS.length - 1; i++) {
+	for (let i = 0; i <= SECTIONS.length - 1; i++) {
 		// set title of section
 		let title = SECTIONS[i].childNodes[3].childNodes[1];
 		// get section name from custom attribute
@@ -45,7 +48,7 @@ function readData(json) {
 			// count the number of items for the json dictionary
 			let count = 1;
 			// iterate through all child nodes
-			for (let k = 1; k < 7; k += 2) {
+			for (let k = 1; k < content.childNodes.length; k += 2) {
 				// set title margins
 				title.style.marginBottom = "0px";
 				title.style.marginTop = "5px";
@@ -83,6 +86,7 @@ function readData(json) {
 	}
 }
 
+// Declare the global index value for the current section the user is on
 var idx = 0;
 
 // Updates the transition delay for each section based on its current state
@@ -133,7 +137,7 @@ function showSection(e) {
 // and hides the previous section so the new one can be displayed.
 function nextElement(event) {
 	// ensures a proper scroll amount before triggering
-	if (event.deltaY >= 20) {
+	if (event.deltaY >= SCROLL_MAGNITUDE) {
 		// iterate through  all nav items
 		for (let i = 0; i < NAV_ITEMS.length; i++) {
 			// if the item is selected, set it to false, then activate the next section
@@ -146,7 +150,7 @@ function nextElement(event) {
 				}
 			}
 		}
-	} else if (event.deltaY <= -20) {
+	} else if (event.deltaY <= -SCROLL_MAGNITUDE) {
 		// if the item is selected, set it to false, then activate the next section
 		for (let i = 0; i < NAV_ITEMS.length; i++) {
 			if (NAV_ITEMS[i].getAttribute("data-selected") == "true") {
@@ -162,7 +166,7 @@ function nextElement(event) {
 	}
 
 	// removes the wheel event listener to allow the animation to start and so that an overscroll is not possible unless intended
-	if (Math.abs(event.deltaY) >= 20) {
+	if (Math.abs(event.deltaY) >= SCROLL_MAGNITUDE) {
 		window.removeEventListener("wheel", nextElement);
 		updateSections();
 		SECTIONS[idx].setAttribute("data-visible", "show");
@@ -170,7 +174,7 @@ function nextElement(event) {
 		// activates the scroll event after 600ms
 		setTimeout(function () {
 			window.addEventListener("wheel", nextElement);
-		}, 600);
+		}, 750);
 	}
 }
 
