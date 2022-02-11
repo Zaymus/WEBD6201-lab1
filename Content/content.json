@@ -1,0 +1,37 @@
+{
+    "home": {
+        "title": "Home",
+        "content": "Welcome to the website for Lab 01 of the WEBD 6201 Course of Carson Brown and Drew Cross. The purpose of this website is to demonstrate our understanding of javascript thus far in the course. In this website we display some information about our programming history and skills we have learned using the appropriate html, css, and js code."
+    },
+    "projects": {
+        "title": "Projects",
+        "image-1": "./Content/images/minesweeper.png",
+        "caption-1": "With this project, I decided to try a more JavaScript heavy project and at the time I had been playing minesweeper on my phone while I am on the go or just have a few minutes to relax as it is a very easy game to play and requires a good amount of thinking to be successful. It is also a fairly basic game in terms of the rules and code complexity. Overall, it was a very fun project and it did teach me a good amount in creating efficient algorithms through the clear empty tiles algorithm.",
+        "image-2": "./Content/images/snake.png",
+        "caption-2": "The Snake game is a very simple game in terms of rules but it can be complicated when thinking on how to create it from scratch. With this project I wanted to learn more about JavaScript graphics so the entire game is made using the canvas tag, and I also wanted to learn more about objects/object-oriented programming within JavaScript so I made sure that the snake and apples were objects that had their own properties and methods.",
+        "image-3": "./Content/images/ice3.png",
+        "caption-3": "This was the third ICE done by Drew. It demonstrated an understanding of jQuery. We chose this project as we just found the images used by Drew to be humorous."
+    },
+    "services": {
+        "title": "Services",
+        "image-1": "./Content/images/browsers.jpg",
+        "caption-1": "Web Development",
+        "image-2": "./Content/images/security.jfif",
+        "caption-2": "Data Security",
+        "image-3": "./Content/images/design.PNG",
+        "caption-3": "Front-End Design"
+    },
+    "about-us": {
+        "title": "About Us",
+        "image-1": "./Content/images/drew-profile-pic.jpg",
+        "caption-1": "My name is Drew Cross. A few things to know about me are I am a crazy sports fan (football specifically, go Patriots!) and in my other free time I enjoy staying fit and watching anime. Web development has been particularly interesting to me and I am interested in going down the full-stack developer route. I will say I do however enjoy the front end style of web development a bit more as styling the website and making it look nice is what makes web development fun to me.",
+        "resume-1": "./Content/files/drew-resume.pdf",
+        "image-2": "./Content/images/carson-profile-pic.jpg",
+        "caption-2": "My name is Carson Brown and I am a big Formula 1 fan and I love everything tech. outside of working on projects I tend to talk with friends online, play video games and try to hone my web development skills through a weekend challenge or to learn something new that may help me in future projects. Web development has been very fun for me and it feels as though it is my spot within the broad topic of computer science as it allows me to be both technical and creative.",
+        "resume-2": "./Content/files/carson-resume.pdf"
+    },
+    "human-resources": {
+        "title": "Human Resources",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab fugit dolorem error molestiae libero enim optio nesciunt voluptas tempora dolor adipisci eius, voluptates laborum! Esse dolor quod sapiente explicabo consequatur dolores nemo velit sint accusantium perspiciatis nobis, deserunt maxime excepturi eveniet vitae saepe in vero at porro laboriosam temporibus tempore."
+    }
+}
