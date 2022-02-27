@@ -225,6 +225,21 @@ function contactSubmit() {
 	}, 3000);
 }
 
+const signinBtn = document.querySelector(".signinBtn");
+const signupBtn = document.querySelector(".signupBtn");
+const formBx = document.querySelector(".formBx");
+const body = document.querySelector("#login-register");
+
+signupBtn.onclick = function () {
+	formBx.classList.add("active");
+	body.classList.add("active");
+};
+
+signinBtn.onclick = function () {
+	formBx.classList.remove("active");
+	body.classList.remove("active");
+};
+
 // event that triggers when the webpage has loaded
 window.onload = () => {
 	// iterate through all nav items and assign click events
