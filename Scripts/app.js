@@ -239,6 +239,7 @@ function contactSubmit() {
 	}, 3000);
 }
 
+// Function for logging in
 function login() {
 	let x = $("#username")[0].value;
 	let y = $("#login-pass")[0].value;
@@ -269,7 +270,7 @@ function login() {
 	}
 }
 
-// function
+// function for registering a user
 function register() {
 	let fName = $("#firstName")[0];
 	let lName = $("#lastName")[0];
