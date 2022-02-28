@@ -4,7 +4,6 @@
 	--clr-text: hsl(0, 0%, 100%);
 	--clr-green: hsl(117, 65%, 40%);
 	--clr-purple: hsl(277, 100%, 30%);
-	--clr-text: hsl(0, 0%, 100%);
 }
 
 body {
@@ -220,12 +219,8 @@ button:hover {
 }
 
 #login-register {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
 	background-color: var(--clr-green);
-	transition: 0.5s;
+	/* transition: 0.5s; */
 }
 
 #login-register > * {
@@ -363,7 +358,7 @@ button:hover {
 	text-align: right;
 }
 
-.formBx .form form input[type="submit"] {
+.formBx .form form input[type="button"] {
 	border: none;
 	color: var(--clr-text);
 	max-width: 100px;
@@ -377,4 +372,14 @@ button:hover {
 .formBx .signupForm input[name="register"] {
 	margin-left: 200px;
 	background: var(--clr-purple);
+}
+
+#errorMessage {
+	position: absolute;
+	width: 50vw;
+	text-align: center;
+	top: 5vh;
+	left: 2%;
+	z-index: 2000;
+	background-color: rgba(255, 255, 255, 0.7);
 }

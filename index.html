@@ -36,7 +36,7 @@
 					<i class="fas fa-phone-alt nav-icon"></i>Contact Us
 				</li>
 				<li class="sub-nav-item" data-selected="false" data-section-num="6">
-					<i class="fa-solid fa-arrow-right-to-bracket nav-icon"></i>Log in
+					<i class="fa-solid fa-arrow-right-to-bracket nav-icon"></i>Sign in
 				</li>
 			</ul>
 		</nav>
@@ -177,22 +177,31 @@
 						<div class="form signinForm">
 							<form>
 								<h3>Sign In</h3>
-								<input type="text" placeholder="Username" />
-								<input type="password" placeholder="Password" />
-								<input type="submit" value="Login" name="login" />
+								<input type="text" id="username" placeholder="Username" />
+								<input type="password" id="login-pass" placeholder="Password" />
+								<input type="button" value="Login" name="login" id="signIn" />
 							</form>
 						</div>
 
 						<div class="form signupForm">
 							<form>
 								<h3>Sign Up</h3>
-								<input type="text" placeholder="Username" />
-								<input type="password" placeholder="Password" />
-								<input type="password" placeholder="Confirm Password" />
-								<input type="text" placeholder="First Name" />
-								<input type="text" placeholder="Last Name" />
-								<input type="text" placeholder="Email Address" />
-								<input type="submit" value="Register" name="register" />
+								<input type="text" placeholder="First Name" id="firstName" />
+								<input type="text" placeholder="Last Name" id="lastName" />
+								<input type="text" placeholder="Username" id="reg-username" />
+								<input type="text" placeholder="Email Address" id="email" />
+								<input type="password" placeholder="Password" id="reg-pass" />
+								<input
+									type="password"
+									placeholder="Confirm Password"
+									id="confPassword"
+								/>
+								<input
+									type="button"
+									value="Register"
+									name="register"
+									id="register"
+								/>
 							</form>
 						</div>
 					</div>

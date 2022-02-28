@@ -5,6 +5,17 @@
 
  */
 
+// user class definition
+class User {
+	constructor(firstName, lastName, userName, email, password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+	}
+}
+
 // Declare Constants used for navbar nagivation and sections
 const NAV_BAR = document.getElementsByTagName("nav")[0];
 const NAV_CONTAINER = document.getElementById("sub-nav");
@@ -19,12 +30,15 @@ hr.classList.add("sub-nav-item");
 hr.setAttribute("data-selected", "false");
 hr.setAttribute("data-section-num", "4");
 hr.innerHTML = '<i class="fas fa-briefcase nav-icon"></i>Human Resources';
+insert_before(hr, 4);
 
 // In this function we insert the human resource nav item before inserting the contact nav item
-NAV_CONTAINER.insertBefore(
-	hr,
-	document.getElementsByClassName("sub-nav-item")[4]
-);
+function insert_before(element, i) {
+	NAV_CONTAINER.insertBefore(
+		element,
+		document.getElementsByClassName("sub-nav-item")[i]
+	);
+}
 
 // Here we edit the Products Nav item to instead be Projects as instructed in Step 3
 const NAV_ITEMS = document.getElementsByClassName("sub-nav-item");
@@ -225,20 +239,115 @@ function contactSubmit() {
 	}, 3000);
 }
 
+function login() {
+	let x = $("#username")[0].value;
+	let y = $("#login-pass")[0].value;
+	console.log(x, y);
+	if (x.length > 0 && y.length > 0) {
+		let user = document.createElement("li");
+		user.classList = "sub-nav-item";
+		user.innerHTML = "User: " + x;
+
+		setTimeout(() => {
+			Array.prototype.forEach.call(NAV_ITEMS, (item) => {
+				item.setAttribute("data-selected", "false");
+			});
+			NAV_ITEMS[0].setAttribute("data-selected", "true");
+			updateSections();
+			SECTIONS[0].setAttribute("data-visible", "show");
+			insert_before(user, 6);
+
+			NAV_ITEMS[7].innerHTML =
+				'<i class="fa-solid fa-arrow-right-from-bracket"></i>Sign-out';
+
+			NAV_ITEMS[7].addEventListener("click", () => {
+				location.reload();
+			});
+		}, 3000);
+	} else {
+		alert("User not found");
+	}
+}
+
+// function
+function register() {
+	let fName = $("#firstName")[0];
+	let lName = $("#lastName")[0];
+	let username = $("#reg-username")[0];
+	let email = $("#email")[0];
+	let password = $("#reg-pass")[0];
+	let confPassword = $("#confPassword")[0];
+	let error = "";
+
+	if (fName.value.length < 2) {
+		error += "First Name must have a minimum of 2 characters in length.<br />";
+	}
+	if (lName.value.length < 2) {
+		error += "Last Name must have a minimum of 2 characters in length.<br />";
+	}
+	if (username.value.length < 1) {
+		error += "username must have a minimum of 1 character in length.<br />";
+	}
+	if (email.value.length < 8) {
+		error += "email must have a minimum of 8 characters in length.<br />";
+	}
+	if (!email.value.includes("@")) {
+		error += "Must insert a valid email.<br />";
+	}
+	if (password.value.length < 6) {
+		error += "password must have a minimum of 6 characters in length.<br />";
+	}
+	if (password.value != confPassword.value) {
+		error += "passwords must match.<br />";
+	}
+
+	if (error.length != 0) {
+		errorContainer.innerHTML = error;
+	} else {
+		let user = new User(
+			fName.value,
+			lName.value,
+			username.value,
+			email.value,
+			password.value
+		);
+		console.log(user);
+		fName.value = "";
+		lName.value = "";
+		username.value = "";
+		email.value = "";
+		password.value = "";
+		confPassword.value = "";
+		error = "";
+		errorContainer.innerHTML = "";
+	}
+}
+
+let errorContainer = document.createElement("div");
+let formContainer = document.querySelector("#login-register");
+errorContainer.id = "errorMessage";
+errorContainer.setAttribute("data-hidden", "true");
+formContainer.prepend(errorContainer);
+
 const signinBtn = document.querySelector(".signinBtn");
 const signupBtn = document.querySelector(".signupBtn");
 const formBx = document.querySelector(".formBx");
 const body = document.querySelector("#login-register");
+const btnRegister = document.querySelector("#register");
+const btnSignIn = document.querySelector("#signIn");
 
-signupBtn.onclick = function () {
+signupBtn.onclick = () => {
 	formBx.classList.add("active");
 	body.classList.add("active");
 };
 
-signinBtn.onclick = function () {
+signinBtn.onclick = () => {
 	formBx.classList.remove("active");
 	body.classList.remove("active");
 };
+
+btnSignIn.addEventListener("click", login);
+btnRegister.addEventListener("click", register);
 
 // event that triggers when the webpage has loaded
 window.onload = () => {
